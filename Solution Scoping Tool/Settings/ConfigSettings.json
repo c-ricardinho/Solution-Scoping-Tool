@@ -1,0 +1,20 @@
+﻿{
+  "PrimarySupportSegment": [ "Managed Colo", "Managed", "Intensive" ],
+  "DefaultBackupRetention": [ "None", "2 Week On Site", "4 Week On Site", "4 Week Off Site", "12 Week Off Site", "52 Week Off Site" ],
+  "VMSnapshotOverhead": 15,
+  "DefaultMaximumUtilisation": 33,
+  "SourceMHzPerCore": 2500,
+  "RackConnect": [ "None", "Cisco ASA", "F5 BIG IP" ],
+  "DDoSPrevention": [ false, true ],
+  "Tier1Firewall": [ "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
+  "Tier1FriewallHA": [ "Unchecked", "Checked" ],
+  "Tier2Firewall": [ "None", "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
+  "Tier2FirewallHA": [ "Unchecked", "Checked" ],
+  "LoadBalancer": [ "None", "F5 BigIP 1600", "F5 BigIP 3200", "F5 BigIP 2000", "F5 BigIP 2200", "F5 BigIP 5200", "F5 BigIP 7200", "Brocade ADX1000 (Base)", "Brocade ADX1000 (Base + SSL)", "Brocade ADX1000 (Performance)", "Brocade ADX1000 (Performance + SSL)", "Brocade ADX1000 (High Performance)", "Brocade ADX1000 (High Performance + SSL)" ],
+  "LoadBalancerHA": ["Unchecked", "Checked" ],
+  "IDSThreatManager": [ "None", "50 Mbps", "51 to 100 Mbps", "101 - 1000 Mbps", "> 1000 Mbps" ],
+  "LogManager": [ false, true ],
+  "WebApplicationFirewall": [ "None", "SecureSphere X1010", "SecureSphere X2010", "SecureSphere X2050" ],
+  "WebApplicationFirewallHA": ["Unchecked", "Checked" ],
+  "GlobalTrafficManager": [ "None","F5 BigIP 1600 GTM","F5 BigIP 3200 GTM","License Only (on existing LTM)"]
+}
