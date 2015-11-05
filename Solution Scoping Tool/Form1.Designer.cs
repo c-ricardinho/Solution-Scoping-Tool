@@ -67,6 +67,9 @@
             this.comboBoxTier1Firewall = new System.Windows.Forms.ComboBox();
             this.labelTier1Firewall = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxSourceMHzPerCore = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxDefaultMaximumUtilisation = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxVMSnapshotOverhead = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxDDoSPrevention = new System.Windows.Forms.ComboBox();
             this.labelDDoSPrevention = new System.Windows.Forms.Label();
             this.comboBoxRackConnect = new System.Windows.Forms.ComboBox();
@@ -78,33 +81,62 @@
             this.labelDefaultBackupRetention = new System.Windows.Forms.Label();
             this.comboBoxPrimarySupportSegment = new System.Windows.Forms.ComboBox();
             this.labelPrimarySupportSegment = new System.Windows.Forms.Label();
+            this.tabPageServers = new System.Windows.Forms.TabPage();
+            this.dataGridViewServers = new System.Windows.Forms.DataGridView();
+            this.ServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServerType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.OperatingSystem = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.LogicalProcessors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Utilisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequiredMHz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HDD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD1Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD2Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD3Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD4Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD5Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.vHostCluster = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.VLAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bandwidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LBPool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datacentre = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Database = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DatabaseCluster = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Include = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBoxConfiguration = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.maskedTextBoxVMSnapshotOverhead = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxDefaultMaximumUtilisation = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxSourceMHzPerCore = new System.Windows.Forms.MaskedTextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.backgroundWorkerLoadConfigSettings = new System.ComponentModel.BackgroundWorker();
             this.tabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             this.groupBoxSolutionScopingToolDetails.SuspendLayout();
             this.tabPageInput.SuspendLayout();
             this.groupBoxBasicNetwork.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPageServers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServers)).BeginInit();
             this.tabPageConfig.SuspendLayout();
             this.groupBoxConfiguration.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +149,7 @@
             this.tabControlMain.Controls.Add(this.tabPageDetails);
             this.tabControlMain.Controls.Add(this.tabPageNotes);
             this.tabControlMain.Controls.Add(this.tabPageInput);
+            this.tabControlMain.Controls.Add(this.tabPageServers);
             this.tabControlMain.Controls.Add(this.tabPageConfig);
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
@@ -166,7 +199,7 @@
             this.textBoxDesignOption.Location = new System.Drawing.Point(239, 149);
             this.textBoxDesignOption.Name = "textBoxDesignOption";
             this.textBoxDesignOption.Size = new System.Drawing.Size(250, 20);
-            this.textBoxDesignOption.TabIndex = 15;
+            this.textBoxDesignOption.TabIndex = 6;
             this.textBoxDesignOption.Text = "a";
             this.textBoxDesignOption.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -184,7 +217,7 @@
             this.textBoxDesignIteration.Location = new System.Drawing.Point(239, 123);
             this.textBoxDesignIteration.Name = "textBoxDesignIteration";
             this.textBoxDesignIteration.Size = new System.Drawing.Size(250, 20);
-            this.textBoxDesignIteration.TabIndex = 13;
+            this.textBoxDesignIteration.TabIndex = 5;
             this.textBoxDesignIteration.Text = "1";
             this.textBoxDesignIteration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -202,7 +235,7 @@
             this.buttonSaveConfig.Location = new System.Drawing.Point(334, 175);
             this.buttonSaveConfig.Name = "buttonSaveConfig";
             this.buttonSaveConfig.Size = new System.Drawing.Size(75, 23);
-            this.buttonSaveConfig.TabIndex = 11;
+            this.buttonSaveConfig.TabIndex = 7;
             this.buttonSaveConfig.Text = "Save Config";
             this.buttonSaveConfig.UseVisualStyleBackColor = true;
             this.buttonSaveConfig.Click += new System.EventHandler(this.buttonSaveConfig_Click);
@@ -212,7 +245,7 @@
             this.buttonLoadConfig.Location = new System.Drawing.Point(415, 175);
             this.buttonLoadConfig.Name = "buttonLoadConfig";
             this.buttonLoadConfig.Size = new System.Drawing.Size(75, 23);
-            this.buttonLoadConfig.TabIndex = 10;
+            this.buttonLoadConfig.TabIndex = 8;
             this.buttonLoadConfig.Text = "Load Config";
             this.buttonLoadConfig.UseVisualStyleBackColor = true;
             this.buttonLoadConfig.Click += new System.EventHandler(this.buttonLoadConfig_Click);
@@ -222,7 +255,7 @@
             this.textBoxProjectName.Location = new System.Drawing.Point(239, 97);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.Size = new System.Drawing.Size(250, 20);
-            this.textBoxProjectName.TabIndex = 7;
+            this.textBoxProjectName.TabIndex = 4;
             this.textBoxProjectName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelProjectName
@@ -239,7 +272,7 @@
             this.textBoxCustomerName.Location = new System.Drawing.Point(239, 71);
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCustomerName.TabIndex = 5;
+            this.textBoxCustomerName.TabIndex = 3;
             this.textBoxCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelCustomerName
@@ -389,7 +422,7 @@
             this.comboBoxGlobalTrafficManager.Location = new System.Drawing.Point(139, 181);
             this.comboBoxGlobalTrafficManager.Name = "comboBoxGlobalTrafficManager";
             this.comboBoxGlobalTrafficManager.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxGlobalTrafficManager.TabIndex = 15;
+            this.comboBoxGlobalTrafficManager.TabIndex = 14;
             // 
             // label6
             // 
@@ -427,7 +460,7 @@
             this.comboBoxLogManager.Location = new System.Drawing.Point(139, 127);
             this.comboBoxLogManager.Name = "comboBoxLogManager";
             this.comboBoxLogManager.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxLogManager.TabIndex = 11;
+            this.comboBoxLogManager.TabIndex = 12;
             // 
             // label4
             // 
@@ -446,7 +479,7 @@
             this.comboBoxIDSThreatManager.Location = new System.Drawing.Point(139, 100);
             this.comboBoxIDSThreatManager.Name = "comboBoxIDSThreatManager";
             this.comboBoxIDSThreatManager.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxIDSThreatManager.TabIndex = 9;
+            this.comboBoxIDSThreatManager.TabIndex = 11;
             // 
             // label3
             // 
@@ -465,7 +498,7 @@
             this.comboBoxLoadBalancer.Location = new System.Drawing.Point(139, 73);
             this.comboBoxLoadBalancer.Name = "comboBoxLoadBalancer";
             this.comboBoxLoadBalancer.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxLoadBalancer.TabIndex = 7;
+            this.comboBoxLoadBalancer.TabIndex = 10;
             // 
             // label2
             // 
@@ -484,7 +517,7 @@
             this.comboBoxTier2Firewall.Location = new System.Drawing.Point(139, 46);
             this.comboBoxTier2Firewall.Name = "comboBoxTier2Firewall";
             this.comboBoxTier2Firewall.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxTier2Firewall.TabIndex = 5;
+            this.comboBoxTier2Firewall.TabIndex = 9;
             // 
             // label1
             // 
@@ -503,7 +536,7 @@
             this.comboBoxTier1Firewall.Location = new System.Drawing.Point(139, 19);
             this.comboBoxTier1Firewall.Name = "comboBoxTier1Firewall";
             this.comboBoxTier1Firewall.Size = new System.Drawing.Size(251, 21);
-            this.comboBoxTier1Firewall.TabIndex = 3;
+            this.comboBoxTier1Firewall.TabIndex = 8;
             // 
             // labelTier1Firewall
             // 
@@ -537,6 +570,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Default Vaues";
             // 
+            // maskedTextBoxSourceMHzPerCore
+            // 
+            this.maskedTextBoxSourceMHzPerCore.Location = new System.Drawing.Point(155, 127);
+            this.maskedTextBoxSourceMHzPerCore.Mask = "0000 MHz";
+            this.maskedTextBoxSourceMHzPerCore.Name = "maskedTextBoxSourceMHzPerCore";
+            this.maskedTextBoxSourceMHzPerCore.Size = new System.Drawing.Size(238, 20);
+            this.maskedTextBoxSourceMHzPerCore.TabIndex = 5;
+            // 
+            // maskedTextBoxDefaultMaximumUtilisation
+            // 
+            this.maskedTextBoxDefaultMaximumUtilisation.Location = new System.Drawing.Point(155, 100);
+            this.maskedTextBoxDefaultMaximumUtilisation.Mask = "00%";
+            this.maskedTextBoxDefaultMaximumUtilisation.Name = "maskedTextBoxDefaultMaximumUtilisation";
+            this.maskedTextBoxDefaultMaximumUtilisation.Size = new System.Drawing.Size(238, 20);
+            this.maskedTextBoxDefaultMaximumUtilisation.TabIndex = 4;
+            // 
+            // maskedTextBoxVMSnapshotOverhead
+            // 
+            this.maskedTextBoxVMSnapshotOverhead.Location = new System.Drawing.Point(155, 72);
+            this.maskedTextBoxVMSnapshotOverhead.Mask = "00%";
+            this.maskedTextBoxVMSnapshotOverhead.Name = "maskedTextBoxVMSnapshotOverhead";
+            this.maskedTextBoxVMSnapshotOverhead.Size = new System.Drawing.Size(238, 20);
+            this.maskedTextBoxVMSnapshotOverhead.TabIndex = 3;
+            // 
             // comboBoxDDoSPrevention
             // 
             this.comboBoxDDoSPrevention.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -544,7 +601,7 @@
             this.comboBoxDDoSPrevention.Location = new System.Drawing.Point(155, 181);
             this.comboBoxDDoSPrevention.Name = "comboBoxDDoSPrevention";
             this.comboBoxDDoSPrevention.Size = new System.Drawing.Size(238, 21);
-            this.comboBoxDDoSPrevention.TabIndex = 13;
+            this.comboBoxDDoSPrevention.TabIndex = 7;
             // 
             // labelDDoSPrevention
             // 
@@ -562,7 +619,7 @@
             this.comboBoxRackConnect.Location = new System.Drawing.Point(155, 154);
             this.comboBoxRackConnect.Name = "comboBoxRackConnect";
             this.comboBoxRackConnect.Size = new System.Drawing.Size(238, 21);
-            this.comboBoxRackConnect.TabIndex = 11;
+            this.comboBoxRackConnect.TabIndex = 6;
             // 
             // labelRackConnect
             // 
@@ -607,7 +664,7 @@
             this.comboBoxDefaultBackupRetention.Location = new System.Drawing.Point(155, 46);
             this.comboBoxDefaultBackupRetention.Name = "comboBoxDefaultBackupRetention";
             this.comboBoxDefaultBackupRetention.Size = new System.Drawing.Size(238, 21);
-            this.comboBoxDefaultBackupRetention.TabIndex = 3;
+            this.comboBoxDefaultBackupRetention.TabIndex = 2;
             // 
             // labelDefaultBackupRetention
             // 
@@ -635,6 +692,220 @@
             this.labelPrimarySupportSegment.Size = new System.Drawing.Size(129, 13);
             this.labelPrimarySupportSegment.TabIndex = 0;
             this.labelPrimarySupportSegment.Text = "Primary Support Segment:";
+            // 
+            // tabPageServers
+            // 
+            this.tabPageServers.Controls.Add(this.dataGridViewServers);
+            this.tabPageServers.Location = new System.Drawing.Point(4, 22);
+            this.tabPageServers.Name = "tabPageServers";
+            this.tabPageServers.Size = new System.Drawing.Size(976, 679);
+            this.tabPageServers.TabIndex = 4;
+            this.tabPageServers.Text = "Servers";
+            this.tabPageServers.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewServers
+            // 
+            this.dataGridViewServers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewServers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewServers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ServerName,
+            this.Qty,
+            this.ServerType,
+            this.OperatingSystem,
+            this.LogicalProcessors,
+            this.Utilisation,
+            this.RequiredMHz,
+            this.RAM,
+            this.HDD1,
+            this.HDD1Type,
+            this.HDD2,
+            this.HDD2Type,
+            this.HDD3,
+            this.HDD3Type,
+            this.HDD4,
+            this.HDD4Type,
+            this.HDD5,
+            this.HDD5Type,
+            this.vHostCluster,
+            this.VLAN,
+            this.Bandwidth,
+            this.LBPool,
+            this.Datacentre,
+            this.Database,
+            this.DatabaseCluster,
+            this.Notes,
+            this.Include});
+            this.dataGridViewServers.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewServers.Name = "dataGridViewServers";
+            this.dataGridViewServers.Size = new System.Drawing.Size(970, 673);
+            this.dataGridViewServers.TabIndex = 0;
+            // 
+            // ServerName
+            // 
+            this.ServerName.HeaderText = "Server Name";
+            this.ServerName.Name = "ServerName";
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            // 
+            // ServerType
+            // 
+            this.ServerType.HeaderText = "ServerType";
+            this.ServerType.Name = "ServerType";
+            this.ServerType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ServerType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // OperatingSystem
+            // 
+            this.OperatingSystem.HeaderText = "OperatingSystem";
+            this.OperatingSystem.Name = "OperatingSystem";
+            this.OperatingSystem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.OperatingSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // LogicalProcessors
+            // 
+            this.LogicalProcessors.HeaderText = "Logical Processors";
+            this.LogicalProcessors.Name = "LogicalProcessors";
+            // 
+            // Utilisation
+            // 
+            this.Utilisation.HeaderText = "Utilisation";
+            this.Utilisation.Name = "Utilisation";
+            // 
+            // RequiredMHz
+            // 
+            this.RequiredMHz.HeaderText = "Required MHz";
+            this.RequiredMHz.Name = "RequiredMHz";
+            // 
+            // RAM
+            // 
+            this.RAM.HeaderText = "RAM (GB)";
+            this.RAM.Name = "RAM";
+            // 
+            // HDD1
+            // 
+            this.HDD1.HeaderText = "HDD - OS (GB)";
+            this.HDD1.Name = "HDD1";
+            this.HDD1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD1Type
+            // 
+            this.HDD1Type.HeaderText = "Type";
+            this.HDD1Type.Name = "HDD1Type";
+            this.HDD1Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD1Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD2
+            // 
+            this.HDD2.HeaderText = "Volume 2 (GB)";
+            this.HDD2.Name = "HDD2";
+            this.HDD2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD2Type
+            // 
+            this.HDD2Type.HeaderText = "Type";
+            this.HDD2Type.Name = "HDD2Type";
+            this.HDD2Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD2Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD3
+            // 
+            this.HDD3.HeaderText = "Volume 3 (GB)";
+            this.HDD3.Name = "HDD3";
+            this.HDD3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD3Type
+            // 
+            this.HDD3Type.HeaderText = "Type";
+            this.HDD3Type.Name = "HDD3Type";
+            this.HDD3Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD3Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD4
+            // 
+            this.HDD4.HeaderText = "Volume 4 (GB)";
+            this.HDD4.Name = "HDD4";
+            this.HDD4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD4Type
+            // 
+            this.HDD4Type.HeaderText = "Type";
+            this.HDD4Type.Name = "HDD4Type";
+            this.HDD4Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD4Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD5
+            // 
+            this.HDD5.HeaderText = "Volume 5 (GB)";
+            this.HDD5.Name = "HDD5";
+            this.HDD5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // HDD5Type
+            // 
+            this.HDD5Type.HeaderText = "Type";
+            this.HDD5Type.Name = "HDD5Type";
+            this.HDD5Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HDD5Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // vHostCluster
+            // 
+            this.vHostCluster.HeaderText = "vHost Cluster";
+            this.vHostCluster.Name = "vHostCluster";
+            this.vHostCluster.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.vHostCluster.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // VLAN
+            // 
+            this.VLAN.HeaderText = "VLAN";
+            this.VLAN.Name = "VLAN";
+            // 
+            // Bandwidth
+            // 
+            this.Bandwidth.HeaderText = "Bandwidth";
+            this.Bandwidth.Name = "Bandwidth";
+            // 
+            // LBPool
+            // 
+            this.LBPool.HeaderText = "LBPool";
+            this.LBPool.Name = "LBPool";
+            // 
+            // Datacentre
+            // 
+            this.Datacentre.HeaderText = "Datacentre";
+            this.Datacentre.Name = "Datacentre";
+            this.Datacentre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Datacentre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Database
+            // 
+            this.Database.HeaderText = "Database";
+            this.Database.Name = "Database";
+            this.Database.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Database.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DatabaseCluster
+            // 
+            this.DatabaseCluster.HeaderText = "Database Cluster";
+            this.DatabaseCluster.Name = "DatabaseCluster";
+            // 
+            // Notes
+            // 
+            this.Notes.HeaderText = "Notes";
+            this.Notes.Name = "Notes";
+            // 
+            // Include
+            // 
+            this.Include.HeaderText = "Include";
+            this.Include.Name = "Include";
             // 
             // tabPageConfig
             // 
@@ -673,118 +944,6 @@
             this.groupBoxConfiguration.TabIndex = 0;
             this.groupBoxConfiguration.TabStop = false;
             this.groupBoxConfiguration.Text = "Solution Scoping Tool Configuration";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(808, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(198, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(604, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Configuration Settings File:";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(808, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(198, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(604, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(111, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Customer Settings File";
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(808, 71);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(198, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(604, 20);
-            this.textBox3.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 76);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Solution Document File:";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(808, 97);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(198, 99);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(604, 20);
-            this.textBox4.TabIndex = 10;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 102);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Visio Stencil File:";
             // 
             // button5
             // 
@@ -826,35 +985,127 @@
             this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBoxVMSnapshotOverhead
+            // button4
             // 
-            this.maskedTextBoxVMSnapshotOverhead.Location = new System.Drawing.Point(155, 72);
-            this.maskedTextBoxVMSnapshotOverhead.Mask = "00%";
-            this.maskedTextBoxVMSnapshotOverhead.Name = "maskedTextBoxVMSnapshotOverhead";
-            this.maskedTextBoxVMSnapshotOverhead.Size = new System.Drawing.Size(238, 20);
-            this.maskedTextBoxVMSnapshotOverhead.TabIndex = 2;
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(808, 97);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBoxDefaultMaximumUtilisation
+            // textBox4
             // 
-            this.maskedTextBoxDefaultMaximumUtilisation.Location = new System.Drawing.Point(155, 100);
-            this.maskedTextBoxDefaultMaximumUtilisation.Mask = "00%";
-            this.maskedTextBoxDefaultMaximumUtilisation.Name = "maskedTextBoxDefaultMaximumUtilisation";
-            this.maskedTextBoxDefaultMaximumUtilisation.Size = new System.Drawing.Size(238, 20);
-            this.maskedTextBoxDefaultMaximumUtilisation.TabIndex = 3;
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(198, 99);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(604, 20);
+            this.textBox4.TabIndex = 10;
             // 
-            // maskedTextBoxSourceMHzPerCore
+            // label10
             // 
-            this.maskedTextBoxSourceMHzPerCore.Location = new System.Drawing.Point(155, 127);
-            this.maskedTextBoxSourceMHzPerCore.Mask = "0000 MHz";
-            this.maskedTextBoxSourceMHzPerCore.Name = "maskedTextBoxSourceMHzPerCore";
-            this.maskedTextBoxSourceMHzPerCore.Size = new System.Drawing.Size(238, 20);
-            this.maskedTextBoxSourceMHzPerCore.TabIndex = 2;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 102);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Visio Stencil File:";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(808, 71);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(198, 73);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(604, 20);
+            this.textBox3.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 76);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Solution Document File:";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(808, 45);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(198, 47);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(604, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Customer Settings File";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(808, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(198, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(604, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Configuration Settings File:";
+            // 
+            // backgroundWorkerLoadConfigSettings
+            // 
+            this.backgroundWorkerLoadConfigSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadConfigSettings_DoWork);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1008, 732);
             this.Controls.Add(this.tabControlMain);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "FormMain";
@@ -870,6 +1121,8 @@
             this.groupBoxBasicNetwork.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageServers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServers)).EndInit();
             this.tabPageConfig.ResumeLayout(false);
             this.groupBoxConfiguration.ResumeLayout(false);
             this.groupBoxConfiguration.PerformLayout();
@@ -950,6 +1203,36 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxVMSnapshotOverhead;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDefaultMaximumUtilisation;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxSourceMHzPerCore;
+        private System.Windows.Forms.TabPage tabPageServers;
+        private System.Windows.Forms.DataGridView dataGridViewServers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ServerType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn OperatingSystem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LogicalProcessors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Utilisation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequiredMHz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RAM;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD1Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD2Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD3Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD4Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD5;
+        private System.Windows.Forms.DataGridViewComboBoxColumn HDD5Type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn vHostCluster;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VLAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bandwidth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LBPool;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Datacentre;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Database;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatabaseCluster;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Include;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerLoadConfigSettings;
     }
 }
 
