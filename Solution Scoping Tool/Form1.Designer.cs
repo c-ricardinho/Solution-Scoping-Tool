@@ -46,6 +46,7 @@
             this.labelScopingToolVersion = new System.Windows.Forms.Label();
             this.textBoxScopingToolVersion = new System.Windows.Forms.TextBox();
             this.tabPageNotes = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPageInput = new System.Windows.Forms.TabPage();
             this.groupBoxBasicNetwork = new System.Windows.Forms.GroupBox();
             this.checkBoxWebApplicationFirewallHighAvailability = new System.Windows.Forms.CheckBox();
@@ -131,7 +132,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorkerLoadConfigSettings = new System.ComponentModel.BackgroundWorker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             this.groupBoxSolutionScopingToolDetails.SuspendLayout();
@@ -334,6 +334,17 @@
             this.tabPageNotes.TabIndex = 1;
             this.tabPageNotes.Text = "Notes";
             this.tabPageNotes.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(964, 667);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
             // 
             // tabPageInput
             // 
@@ -769,12 +780,18 @@
             this.DatabaseCluster,
             this.Notes,
             this.Include});
+            this.dataGridViewServers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridViewServers.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewServers.Name = "dataGridViewServers";
             this.dataGridViewServers.Size = new System.Drawing.Size(970, 644);
             this.dataGridViewServers.TabIndex = 0;
+            this.dataGridViewServers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewServers_CellContentClick);
+            this.dataGridViewServers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewServers_CellContentClick);
+            this.dataGridViewServers.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewServers_CellMouseUp);
             this.dataGridViewServers.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewServers_CellValidated);
             this.dataGridViewServers.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewServers_CellValidating);
+            this.dataGridViewServers.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewServers_CellValueChanged);
+            this.dataGridViewServers.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewServers_CurrentCellDirtyStateChanged);
             this.dataGridViewServers.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewServers_DefaultValuesNeeded);
             // 
             // ServerName
@@ -1159,17 +1176,6 @@
             // 
             this.backgroundWorkerLoadConfigSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadConfigSettings_DoWork);
             this.backgroundWorkerLoadConfigSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadConfigSettings_RunWorkerCompleted);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(964, 667);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
             // 
             // FormMain
             // 

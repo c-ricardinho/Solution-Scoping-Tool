@@ -324,8 +324,8 @@ namespace Solution_Scoping_Tool
 
                 string inputJSON = File.ReadAllText(strFileName);
                 CustomerSettings JSONData = JsonConvert.DeserializeObject<CustomerSettings>(inputJSON);
-                //try
-                //{
+                try
+                {
                     //Detail Tab
                     textBoxCustomerName.Text = JSONData.CustomerName;
                     textBoxProjectName.Text = JSONData.ProjectName;
@@ -353,81 +353,71 @@ namespace Solution_Scoping_Tool
                     comboBoxGlobalTrafficManager.SelectedItem = JSONData.GlobalTrafficManager;
 
                     //Server Tab
-                    //var customerServerTab = JSONData.CustomerServerTab;
 
                     dataGridViewServers.Rows.Clear();
-                //dataGridViewServers.Rows.Add();
 
-                
-                
+                    int customerServerRecords = 0;
 
-                int customerServerRecords = 0;
-                //foreach (CustomerServerTab customerServerList in JSONData.CustomerServerTab)
-                //{
-                //    customerServerRecords++;
-                //}
+                    DataGridViewRow[] rowArray = new DataGridViewRow[customerServerRecords];
+                    DataGridViewRow r = new DataGridViewRow();
 
-                DataGridViewRow[] rowArray = new DataGridViewRow[customerServerRecords];
-                DataGridViewRow r = new DataGridViewRow();
+                    int intCustomerServerItem = 0;
+                    CustomerServerTab customerServerList = new CustomerServerTab();
+                    List<CustomerServerTab> customerServerTab = new List<CustomerServerTab>();
+                    customerServerTab = JSONData.CustomerServerTab;
 
-                int intCustomerServerItem = 0;
-                CustomerServerTab customerServerList = new CustomerServerTab();
-                List<CustomerServerTab> customerServerTab = new List<CustomerServerTab>();
-                customerServerTab = JSONData.CustomerServerTab;
+                    foreach (CustomerServerTab customerServerItem in customerServerTab)
+                    {
+                        dataGridViewServers.Rows.Add();
+                        DataGridViewRow row = dataGridViewServers.Rows[intCustomerServerItem];
+                        customerServerList = new CustomerServerTab();
 
-                foreach (CustomerServerTab customerServerItem in customerServerTab)
-                {
-                    dataGridViewServers.Rows.Add();
-                    DataGridViewRow row = dataGridViewServers.Rows[intCustomerServerItem];
-                    customerServerList = new CustomerServerTab();
-                    
-                    //MessageBox.Show(customerServerTab[intCustomerServerItem].ServerName.ToString());
-                    
-                    customerServerList = customerServerItem;
-                    //MessageBox.Show(customerServerList.ServerName.ToString() + dataGridViewServers.RowCount.ToString());
+                        //MessageBox.Show(customerServerTab[intCustomerServerItem].ServerName.ToString());
 
-                    row.Cells["ServerName"].Value = customerServerList.ServerName;
-                    row.Cells["Qty"].Value = customerServerList.Qty;
-                    row.Cells["ServerType"].Value = customerServerList.ServerType;
-                    row.Cells["OperatingSystem"].Value = customerServerList.OperatingSystem;
-                    row.Cells["LogicalProcessors"].Value = customerServerList.LogicalProcessors;
-                    row.Cells["Utilisation"].Value = customerServerList.Utilisation;
-                    row.Cells["RAM"].Value = customerServerList.RAM;
-                    row.Cells["HDD1"].Value = customerServerList.HDD1;
-                    row.Cells["HDD1Type"].Value = customerServerList.HDD1Type;
-                    row.Cells["HDD2"].Value = customerServerList.HDD2;
-                    row.Cells["HDD2Type"].Value = customerServerList.HDD2Type;
-                    row.Cells["HDD3"].Value = customerServerList.HDD3;
-                    row.Cells["HDD3Type"].Value = customerServerList.HDD3Type;
-                    row.Cells["HDD4"].Value = customerServerList.HDD4;
-                    row.Cells["HDD4Type"].Value = customerServerList.HDD4Type;
-                    row.Cells["HDD5"].Value = customerServerList.HDD5;
-                    row.Cells["HDD5Type"].Value = customerServerList.HDD5Type;
-                    row.Cells["vHostCluster"].Value = customerServerList.vHostCluster;
-                    row.Cells["VLAN"].Value = customerServerList.VLAN;
-                    row.Cells["Bandwidth"].Value = customerServerList.Bandwidth;
-                    row.Cells["LBPool"].Value = customerServerList.LBPool;
-                    row.Cells["Datacentre"].Value = customerServerList.Datacentre;
-                    row.Cells["Database"].Value = customerServerList.Database;
-                    row.Cells["DatabaseCluster"].Value = customerServerList.DatabaseCluster;
-                    row.Cells["Notes"].Value = customerServerList.Notes;
-                    row.Cells["Include"].Value = customerServerList.Include;
+                        customerServerList = customerServerItem;
+                        //MessageBox.Show(customerServerList.ServerName.ToString() + dataGridViewServers.RowCount.ToString());
 
-                    intCustomerServerItem++;
+                        row.Cells["ServerName"].Value = customerServerList.ServerName;
+                        row.Cells["Qty"].Value = customerServerList.Qty;
+                        row.Cells["ServerType"].Value = customerServerList.ServerType;
+                        row.Cells["OperatingSystem"].Value = customerServerList.OperatingSystem;
+                        row.Cells["LogicalProcessors"].Value = customerServerList.LogicalProcessors;
+                        row.Cells["Utilisation"].Value = customerServerList.Utilisation;
+                        row.Cells["RAM"].Value = customerServerList.RAM;
+                        row.Cells["HDD1"].Value = customerServerList.HDD1;
+                        row.Cells["HDD1Type"].Value = customerServerList.HDD1Type;
+                        row.Cells["HDD2"].Value = customerServerList.HDD2;
+                        row.Cells["HDD2Type"].Value = customerServerList.HDD2Type;
+                        row.Cells["HDD3"].Value = customerServerList.HDD3;
+                        row.Cells["HDD3Type"].Value = customerServerList.HDD3Type;
+                        row.Cells["HDD4"].Value = customerServerList.HDD4;
+                        row.Cells["HDD4Type"].Value = customerServerList.HDD4Type;
+                        row.Cells["HDD5"].Value = customerServerList.HDD5;
+                        row.Cells["HDD5Type"].Value = customerServerList.HDD5Type;
+                        row.Cells["vHostCluster"].Value = customerServerList.vHostCluster;
+                        row.Cells["VLAN"].Value = customerServerList.VLAN;
+                        row.Cells["Bandwidth"].Value = customerServerList.Bandwidth;
+                        row.Cells["LBPool"].Value = customerServerList.LBPool;
+                        row.Cells["Datacentre"].Value = customerServerList.Datacentre;
+                        row.Cells["Database"].Value = customerServerList.Database;
+                        row.Cells["DatabaseCluster"].Value = customerServerList.DatabaseCluster;
+                        row.Cells["Notes"].Value = customerServerList.Notes;
+                        row.Cells["Include"].Value = customerServerList.Include;
+
+                        intCustomerServerItem++;
+                    }
+
+                    dataGridViewServers.Rows.RemoveAt(dataGridViewServers.RowCount - 2);
+                    updateRequiredMHzColumn();
+
+                    MessageBox.Show("Customer configuration file loaded.", "Load complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
-                dataGridViewServers.Rows.RemoveAt(dataGridViewServers.RowCount - 2);
-                //dataGridViewServers.Update();
-                //dataGridViewServers.UpdateCellValue(dataGridViewServers.Columns[RequiredMHz.Index].Index,0);
-                
-
-                MessageBox.Show("Customer configuration file loaded.", "Load complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //catch (System.Exception excep)
-                //{
-                    //MessageBox.Show("Customer confiugration file could not be loaded. Defaults will be loaded \n\n" + excep.Message, "Load incomplete", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //LoadConfigSettings();
-                //}
+                catch (System.Exception excep)
+                {
+                    MessageBox.Show("Customer confiugration file could not be loaded. Defaults will be loaded \n\n" + excep.Message, "Load incomplete", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dataGridViewServers.Rows.Clear();
+                    LoadConfigSettings();
+                }
             }
         }
 
@@ -544,7 +534,7 @@ namespace Solution_Scoping_Tool
                     customerServerItem.DatabaseCluster = objCustomerServerTab[13].ToString();
                     customerServerItem.Notes = objCustomerServerTab[14].ToString();
                     customerServerItem.Include = Convert.ToBoolean(objCustomerServerTab[15].ToString());
-                    
+
                     customerServerTab.Add(customerServerItem);
                 }
 
@@ -642,6 +632,30 @@ namespace Solution_Scoping_Tool
             }
         }
 
+        private void updateRequiredMHzColumn()
+        {
+            string[] ColumnNameArray = new string[2];
+            ColumnNameArray[0] = "LogicalProcessors";
+            ColumnNameArray[1] = "Utilisation";
+
+            for (int i = 0; i < ColumnNameArray.Length; i++)
+            {
+                foreach (DataGridViewRow row in dataGridViewServers.Rows)
+                {
+                    if (row.Index > -1 &&
+                        row.Cells[LogicalProcessors.Index].Value != null &&
+                        row.Cells[Utilisation.Index].Value != null)
+                    {
+                        decimal decimalLogicalProcessors = Convert.ToDecimal(row.Cells[LogicalProcessors.Index].Value.ToString());
+                        decimal decimalUtilisation = Convert.ToDecimal(row.Cells[Utilisation.Index].Value.ToString());
+                        decimal decimalSourceMHzPerCore = Convert.ToDecimal(maskedTextBoxSourceMHzPerCore.Text.ToString().Replace(" MHz", ""));
+
+                        row.Cells[RequiredMHz.Index].Value = Math.Truncate(decimalLogicalProcessors * decimalSourceMHzPerCore * (decimalUtilisation / 100)).ToString();
+                    }
+                }
+            }
+        }
+
         private void buttonShowHideHDDs_Click(object sender, EventArgs e)
         {
             string[] strColumnNameArrayHDD = new string[5];
@@ -690,6 +704,46 @@ namespace Solution_Scoping_Tool
             
             dataGridViewServers.Columns["Database"].Visible = boolColour;
             dataGridViewServers.Columns["DatabaseCluster"].Visible = boolColour;
+        }
+
+        private void dataGridViewServers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == Include.Index && e.RowIndex != -1)
+            {
+
+            }
+        }
+
+        private void dataGridViewServers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == Include.Index && e.RowIndex != -1)
+            {
+                if (Convert.ToBoolean(dataGridViewServers.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == true)
+                {
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Empty;
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Empty;
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(dataGridViewServers.Font, FontStyle.Regular);
+                }
+                else if (Convert.ToBoolean(dataGridViewServers.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == false)
+                {
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DimGray;
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(dataGridViewServers.Font, FontStyle.Italic);
+                }
+            }
+        }
+
+        private void dataGridViewServers_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == Include.Index && e.RowIndex != -1)
+            {
+                dataGridViewServers.EndEdit();
+            }            
+        }
+
+        private void dataGridViewServers_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            dataGridViewServers.EndEdit(DataGridViewDataErrorContexts.Commit);
         }
     }
 }
