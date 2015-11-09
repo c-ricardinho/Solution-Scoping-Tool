@@ -82,6 +82,8 @@
             this.comboBoxPrimarySupportSegment = new System.Windows.Forms.ComboBox();
             this.labelPrimarySupportSegment = new System.Windows.Forms.Label();
             this.tabPageServers = new System.Windows.Forms.TabPage();
+            this.buttonShowHideDatabases = new System.Windows.Forms.Button();
+            this.buttonShowHideHDDs = new System.Windows.Forms.Button();
             this.dataGridViewServers = new System.Windows.Forms.DataGridView();
             this.ServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,15 +93,15 @@
             this.Utilisation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RequiredMHz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HDD1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HDD1Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HDD2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HDD2Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HDD3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HDD3Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HDD4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HDD4Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HDD5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HDD5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HDD5Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.vHostCluster = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.VLAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,9 +131,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorkerLoadConfigSettings = new System.ComponentModel.BackgroundWorker();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             this.groupBoxSolutionScopingToolDetails.SuspendLayout();
+            this.tabPageNotes.SuspendLayout();
             this.tabPageInput.SuspendLayout();
             this.groupBoxBasicNetwork.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -322,6 +326,7 @@
             // 
             // tabPageNotes
             // 
+            this.tabPageNotes.Controls.Add(this.richTextBox1);
             this.tabPageNotes.Location = new System.Drawing.Point(4, 22);
             this.tabPageNotes.Name = "tabPageNotes";
             this.tabPageNotes.Padding = new System.Windows.Forms.Padding(3);
@@ -581,7 +586,7 @@
             // maskedTextBoxDefaultMaximumUtilisation
             // 
             this.maskedTextBoxDefaultMaximumUtilisation.Location = new System.Drawing.Point(155, 100);
-            this.maskedTextBoxDefaultMaximumUtilisation.Mask = "00%";
+            this.maskedTextBoxDefaultMaximumUtilisation.Mask = "00 %";
             this.maskedTextBoxDefaultMaximumUtilisation.Name = "maskedTextBoxDefaultMaximumUtilisation";
             this.maskedTextBoxDefaultMaximumUtilisation.Size = new System.Drawing.Size(238, 20);
             this.maskedTextBoxDefaultMaximumUtilisation.TabIndex = 4;
@@ -589,7 +594,7 @@
             // maskedTextBoxVMSnapshotOverhead
             // 
             this.maskedTextBoxVMSnapshotOverhead.Location = new System.Drawing.Point(155, 72);
-            this.maskedTextBoxVMSnapshotOverhead.Mask = "00%";
+            this.maskedTextBoxVMSnapshotOverhead.Mask = "00 %";
             this.maskedTextBoxVMSnapshotOverhead.Name = "maskedTextBoxVMSnapshotOverhead";
             this.maskedTextBoxVMSnapshotOverhead.Size = new System.Drawing.Size(238, 20);
             this.maskedTextBoxVMSnapshotOverhead.TabIndex = 3;
@@ -695,6 +700,8 @@
             // 
             // tabPageServers
             // 
+            this.tabPageServers.Controls.Add(this.buttonShowHideDatabases);
+            this.tabPageServers.Controls.Add(this.buttonShowHideHDDs);
             this.tabPageServers.Controls.Add(this.dataGridViewServers);
             this.tabPageServers.Location = new System.Drawing.Point(4, 22);
             this.tabPageServers.Name = "tabPageServers";
@@ -703,11 +710,36 @@
             this.tabPageServers.Text = "Servers";
             this.tabPageServers.UseVisualStyleBackColor = true;
             // 
+            // buttonShowHideDatabases
+            // 
+            this.buttonShowHideDatabases.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowHideDatabases.BackColor = System.Drawing.Color.Lime;
+            this.buttonShowHideDatabases.Location = new System.Drawing.Point(84, 653);
+            this.buttonShowHideDatabases.Name = "buttonShowHideDatabases";
+            this.buttonShowHideDatabases.Size = new System.Drawing.Size(75, 23);
+            this.buttonShowHideDatabases.TabIndex = 2;
+            this.buttonShowHideDatabases.Text = "Database";
+            this.buttonShowHideDatabases.UseVisualStyleBackColor = false;
+            this.buttonShowHideDatabases.Click += new System.EventHandler(this.buttonShowHideDatabases_Click);
+            // 
+            // buttonShowHideHDDs
+            // 
+            this.buttonShowHideHDDs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowHideHDDs.BackColor = System.Drawing.Color.Lime;
+            this.buttonShowHideHDDs.Location = new System.Drawing.Point(3, 653);
+            this.buttonShowHideHDDs.Name = "buttonShowHideHDDs";
+            this.buttonShowHideHDDs.Size = new System.Drawing.Size(75, 23);
+            this.buttonShowHideHDDs.TabIndex = 1;
+            this.buttonShowHideHDDs.Text = "HDDs";
+            this.buttonShowHideHDDs.UseVisualStyleBackColor = false;
+            this.buttonShowHideHDDs.Click += new System.EventHandler(this.buttonShowHideHDDs_Click);
+            // 
             // dataGridViewServers
             // 
             this.dataGridViewServers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewServers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewServers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewServers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ServerName,
@@ -739,59 +771,71 @@
             this.Include});
             this.dataGridViewServers.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewServers.Name = "dataGridViewServers";
-            this.dataGridViewServers.Size = new System.Drawing.Size(970, 673);
+            this.dataGridViewServers.Size = new System.Drawing.Size(970, 644);
             this.dataGridViewServers.TabIndex = 0;
+            this.dataGridViewServers.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewServers_CellValidated);
+            this.dataGridViewServers.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewServers_CellValidating);
+            this.dataGridViewServers.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewServers_DefaultValuesNeeded);
             // 
             // ServerName
             // 
             this.ServerName.HeaderText = "Server Name";
             this.ServerName.Name = "ServerName";
+            this.ServerName.Width = 87;
             // 
             // Qty
             // 
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
+            this.Qty.Width = 48;
             // 
             // ServerType
             // 
-            this.ServerType.HeaderText = "ServerType";
+            this.ServerType.HeaderText = "Server Type";
             this.ServerType.Name = "ServerType";
             this.ServerType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ServerType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ServerType.Width = 83;
             // 
             // OperatingSystem
             // 
-            this.OperatingSystem.HeaderText = "OperatingSystem";
+            this.OperatingSystem.HeaderText = "Operating System";
             this.OperatingSystem.Name = "OperatingSystem";
             this.OperatingSystem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.OperatingSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.OperatingSystem.Width = 105;
             // 
             // LogicalProcessors
             // 
             this.LogicalProcessors.HeaderText = "Logical Processors";
             this.LogicalProcessors.Name = "LogicalProcessors";
+            this.LogicalProcessors.Width = 111;
             // 
             // Utilisation
             // 
-            this.Utilisation.HeaderText = "Utilisation";
+            this.Utilisation.HeaderText = "Utilisation (%)";
             this.Utilisation.Name = "Utilisation";
+            this.Utilisation.Width = 87;
             // 
             // RequiredMHz
             // 
             this.RequiredMHz.HeaderText = "Required MHz";
             this.RequiredMHz.Name = "RequiredMHz";
+            this.RequiredMHz.ReadOnly = true;
+            this.RequiredMHz.Width = 92;
             // 
             // RAM
             // 
             this.RAM.HeaderText = "RAM (GB)";
             this.RAM.Name = "RAM";
+            this.RAM.Width = 74;
             // 
             // HDD1
             // 
             this.HDD1.HeaderText = "HDD - OS (GB)";
             this.HDD1.Name = "HDD1";
             this.HDD1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HDD1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD1.Width = 77;
             // 
             // HDD1Type
             // 
@@ -799,13 +843,14 @@
             this.HDD1Type.Name = "HDD1Type";
             this.HDD1Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HDD1Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD1Type.Width = 56;
             // 
             // HDD2
             // 
             this.HDD2.HeaderText = "Volume 2 (GB)";
             this.HDD2.Name = "HDD2";
             this.HDD2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HDD2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD2.Width = 73;
             // 
             // HDD2Type
             // 
@@ -813,13 +858,14 @@
             this.HDD2Type.Name = "HDD2Type";
             this.HDD2Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HDD2Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD2Type.Width = 56;
             // 
             // HDD3
             // 
             this.HDD3.HeaderText = "Volume 3 (GB)";
             this.HDD3.Name = "HDD3";
             this.HDD3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HDD3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD3.Width = 73;
             // 
             // HDD3Type
             // 
@@ -827,13 +873,14 @@
             this.HDD3Type.Name = "HDD3Type";
             this.HDD3Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HDD3Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD3Type.Width = 56;
             // 
             // HDD4
             // 
             this.HDD4.HeaderText = "Volume 4 (GB)";
             this.HDD4.Name = "HDD4";
             this.HDD4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HDD4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD4.Width = 73;
             // 
             // HDD4Type
             // 
@@ -841,13 +888,14 @@
             this.HDD4Type.Name = "HDD4Type";
             this.HDD4Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HDD4Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD4Type.Width = 56;
             // 
             // HDD5
             // 
             this.HDD5.HeaderText = "Volume 5 (GB)";
             this.HDD5.Name = "HDD5";
             this.HDD5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HDD5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD5.Width = 73;
             // 
             // HDD5Type
             // 
@@ -855,6 +903,7 @@
             this.HDD5Type.Name = "HDD5Type";
             this.HDD5Type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HDD5Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HDD5Type.Width = 56;
             // 
             // vHostCluster
             // 
@@ -862,21 +911,25 @@
             this.vHostCluster.Name = "vHostCluster";
             this.vHostCluster.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vHostCluster.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.vHostCluster.Width = 87;
             // 
             // VLAN
             // 
             this.VLAN.HeaderText = "VLAN";
             this.VLAN.Name = "VLAN";
+            this.VLAN.Width = 60;
             // 
             // Bandwidth
             // 
             this.Bandwidth.HeaderText = "Bandwidth";
             this.Bandwidth.Name = "Bandwidth";
+            this.Bandwidth.Width = 82;
             // 
             // LBPool
             // 
             this.LBPool.HeaderText = "LBPool";
             this.LBPool.Name = "LBPool";
+            this.LBPool.Width = 66;
             // 
             // Datacentre
             // 
@@ -884,6 +937,7 @@
             this.Datacentre.Name = "Datacentre";
             this.Datacentre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Datacentre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Datacentre.Width = 85;
             // 
             // Database
             // 
@@ -891,21 +945,25 @@
             this.Database.Name = "Database";
             this.Database.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Database.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Database.Width = 78;
             // 
             // DatabaseCluster
             // 
             this.DatabaseCluster.HeaderText = "Database Cluster";
             this.DatabaseCluster.Name = "DatabaseCluster";
+            this.DatabaseCluster.Width = 104;
             // 
             // Notes
             // 
             this.Notes.HeaderText = "Notes";
             this.Notes.Name = "Notes";
+            this.Notes.Width = 60;
             // 
             // Include
             // 
             this.Include.HeaderText = "Include";
             this.Include.Name = "Include";
+            this.Include.Width = 48;
             // 
             // tabPageConfig
             // 
@@ -1100,6 +1158,18 @@
             // backgroundWorkerLoadConfigSettings
             // 
             this.backgroundWorkerLoadConfigSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadConfigSettings_DoWork);
+            this.backgroundWorkerLoadConfigSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadConfigSettings_RunWorkerCompleted);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(964, 667);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
             // 
             // FormMain
             // 
@@ -1116,6 +1186,7 @@
             this.tabPageDetails.ResumeLayout(false);
             this.groupBoxSolutionScopingToolDetails.ResumeLayout(false);
             this.groupBoxSolutionScopingToolDetails.PerformLayout();
+            this.tabPageNotes.ResumeLayout(false);
             this.tabPageInput.ResumeLayout(false);
             this.groupBoxBasicNetwork.ResumeLayout(false);
             this.groupBoxBasicNetwork.PerformLayout();
@@ -1205,6 +1276,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxSourceMHzPerCore;
         private System.Windows.Forms.TabPage tabPageServers;
         private System.Windows.Forms.DataGridView dataGridViewServers;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerLoadConfigSettings;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewComboBoxColumn ServerType;
@@ -1213,15 +1285,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Utilisation;
         private System.Windows.Forms.DataGridViewTextBoxColumn RequiredMHz;
         private System.Windows.Forms.DataGridViewTextBoxColumn RAM;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HDD1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD1;
         private System.Windows.Forms.DataGridViewComboBoxColumn HDD1Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HDD2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD2;
         private System.Windows.Forms.DataGridViewComboBoxColumn HDD2Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HDD3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD3;
         private System.Windows.Forms.DataGridViewComboBoxColumn HDD3Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HDD4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD4;
         private System.Windows.Forms.DataGridViewComboBoxColumn HDD4Type;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HDD5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HDD5;
         private System.Windows.Forms.DataGridViewComboBoxColumn HDD5Type;
         private System.Windows.Forms.DataGridViewComboBoxColumn vHostCluster;
         private System.Windows.Forms.DataGridViewTextBoxColumn VLAN;
@@ -1232,7 +1304,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DatabaseCluster;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Include;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerLoadConfigSettings;
+        private System.Windows.Forms.Button buttonShowHideDatabases;
+        private System.Windows.Forms.Button buttonShowHideHDDs;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

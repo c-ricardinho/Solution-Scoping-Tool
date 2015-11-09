@@ -1,20 +1,36 @@
 ﻿{
-  "PrimarySupportSegment": [ "Managed Colo", "Managed", "Intensive" ],
-  "DefaultBackupRetention": [ "None", "2 Week On Site", "4 Week On Site", "4 Week Off Site", "12 Week Off Site", "52 Week Off Site" ],
-  "VMSnapshotOverhead": 15,
-  "DefaultMaximumUtilisation": 33,
-  "SourceMHzPerCore": 2500,
-  "RackConnect": [ "None", "Cisco ASA", "F5 BIG IP" ],
-  "DDoSPrevention": [ false, true ],
-  "Tier1Firewall": [ "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
-  "Tier1FriewallHA": [ false, true ],
-  "Tier2Firewall": [ "None", "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
-  "Tier2FirewallHA": [ false, true ],
-  "LoadBalancer": [ "None", "F5 BigIP 1600", "F5 BigIP 3200", "F5 BigIP 2000", "F5 BigIP 2200", "F5 BigIP 5200", "F5 BigIP 7200", "Brocade ADX1000 (Base)", "Brocade ADX1000 (Base + SSL)", "Brocade ADX1000 (Performance)", "Brocade ADX1000 (Performance + SSL)", "Brocade ADX1000 (High Performance)", "Brocade ADX1000 (High Performance + SSL)" ],
-  "LoadBalancerHA": [ false, true ],
-  "IDSThreatManager": [ "None", "50 Mbps", "51 to 100 Mbps", "101 - 1000 Mbps", "> 1000 Mbps" ],
-  "LogManager": [ false, true ],
-  "WebApplicationFirewall": [ "None", "SecureSphere X1010", "SecureSphere X2010", "SecureSphere X2050" ],
-  "WebApplicationFirewallHA": [ false, true ],
-  "GlobalTrafficManager": [ "None","F5 BigIP 1600 GTM","F5 BigIP 3200 GTM","License Only (on existing LTM)"]
-}
+  "InputTab": {
+    "PrimarySupportSegment": [ "Managed Colo", "Managed", "Intensive" ],
+    "DefaultBackupRetention": [ "None", "2 Week On Site", "4 Week On Site", "4 Week Off Site", "12 Week Off Site", "52 Week Off Site" ],
+    "VMSnapshotOverhead": 15,
+    "DefaultMaximumUtilisation": 33,
+    "SourceMHzPerCore": 2500,
+    "RackConnect": [ "None", "Cisco ASA", "F5 BIG IP" ],
+    "DDoSPrevention": [ false, true ],
+    "Tier1Firewall": [ "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
+    "Tier1FriewallHA": [ false, true ],
+    "Tier2Firewall": [ "None", "Cisco ASA 5505 Unlimited", "Cisco ASA 5505 Sec+", "Cisco ASA 5510", "Cisco ASA 5520", "Cisco ASA 5540", "Cisco ASA 5550", "Cisco ASA 5515X", "Cisco ASA 5525X", "Cisco ASA 5545X", "Cisco ASA 5555X", "Juniper SRX 240" ],
+    "Tier2FirewallHA": [ false, true ],
+    "LoadBalancer": [ "None", "F5 BigIP 1600", "F5 BigIP 3200", "F5 BigIP 2000", "F5 BigIP 2200", "F5 BigIP 5200", "F5 BigIP 7200", "Brocade ADX1000 (Base)", "Brocade ADX1000 (Base + SSL)", "Brocade ADX1000 (Performance)", "Brocade ADX1000 (Performance + SSL)", "Brocade ADX1000 (High Performance)", "Brocade ADX1000 (High Performance + SSL)" ],
+    "LoadBalancerHA": [ false, true ],
+    "IDSThreatManager": [ "None", "50 Mbps", "51 to 100 Mbps", "101 - 1000 Mbps", "> 1000 Mbps" ],
+    "LogManager": [ false, true ],
+    "WebApplicationFirewall": [ "None", "SecureSphere X1010", "SecureSphere X2010", "SecureSphere X2050" ],
+    "WebApplicationFirewallHA": [ false, true ],
+    "GlobalTrafficManager": [ "None", "F5 BigIP 1600 GTM", "F5 BigIP 3200 GTM", "License Only (on existing LTM)" ]
+  },
+
+  "ServerTab": {
+    "ServerType": [ "Physical", "Virtual", "Cloud", "VM Applicance" ],
+    "OperatingSystem": {
+      "DedicatedOS": [ "W2K8 R2 STD 64-bit", "W2K8 R2 ENT 64-bit", "W2K8 R2 WEB 64-bit", "W2k12 R2 STD 64-bit", "W2k12 STD 64-bit", "W2K8 STD 32-bit", "W2K8 ENT 32-bit", "W2K8 WEB 32-bit", "CentOS 5.6", "CentOS 5.8", "CentOS 6.0", "CentOS 6.2", "CentOS 6.3", "CentOS 6.4", "RHEL6 64-bit", "RHEL5 64-bit", "RHAL5 64-bit", "RHEL4 64-bit", "RHEL5 32-bit", "RHEL4 32-bit", "UNSUPPORTED" ],
+      "CloudOS": [ "Arch 2014.10 (PVHVM)", "CentOS 5.11", "CentOS 6.5", "CentOS 6.5 (PVHVM)", "CentOS 7 (PVHVM)", "CoreOS (Alpha)", "CoreOS (Beta)", "CoreOS (Stable)", "Debian 6 (Squeeze)", "Debian 7 (Wheezy) (PVHVM)", "Debian Testing (Jessie) (PVHVM)", "Debian Unstable (Sid) (PVHVM)", "Fedora 19 (Schrodinger's Cat) (PVHVM)", "Fedora 20 (Heisenbug) (PVHVM)", "FreeBSD 10.0", "Gentoo 14.4 (PVHVM)", "OpenSUSE 13.1 (PVHVM)", "Red Hat Enterprise Linux 5.11", "Red Hat Enterprise Linux 6.6", "Red Hat Enterprise Linux 6.6 (PVHVM)", "Red Hat Enterprise Linux 7 (PVHVM)", "Scientific Linux 6.5 (PVHVM)", "Ubuntu 10.04 LTS (Lucid Lynx)", "Ubuntu 12.04 LTS (Precise Pangolin)", "Ubuntu 12.04 LTS (Precise Pangolin) (PVHVM)", "Ubuntu 14.04 LTS (Trusty Tahr)", "Ubuntu 14.04 LTS (Trusty Tahr) (PVHVM)", "Ubuntu 14.10 (Utopic Unicorn)", "Ubuntu 14.10 (Utopic Unicorn) (PVHVM)", "Vyatta Network OS 6.7R2", "Windows Server 2008 R2 SP1", "Windows Server 2008 R2 SP1 (base install without updates)", "Windows Server 2008 R2 SP1 + SharePoint 2010 Foundation with SQL Server 2008 R2 Express", "Windows Server 2008 R2 SP1 + SharePoint 2010 Foundation with SQL Server 2008 R2 SP1 Standard", "Windows Server 2008 R2 SP1 + SQL Server 2008 R2 SP2 Standard", "Windows Server 2008 R2 SP1 + SQL Server 2008 R2 SP2 Web", "Windows Server 2008 R2 SP1 + SQL Server 2012 SP1 Standard", "Windows Server 2008 R2 SP1 + SQL Server 2012 SP1 Web", "Windows Server 2012", "Windows Server 2012 (base install without updates)", "Windows Server 2012 + SharePoint 2013 with SQL Server 2012 SP1 Standard", "Windows Server 2012 + SQL Server 2012 SP1 Standard", "Windows Server 2012 + SQL Server 2012 SP1 Web", "Windows Server 2012 R2", "Windows Server 2012 R2 (base install without updates)", "Windows Server 2012 R2 + SQL Server 2014 Standard", "Windows Server 2012 R2 + SQL Server 2014 Web" ]
+    },
+    "HDDType": [ "", "Block (Tier 1)", "Block (Tier 2)", "Block (Tier 3)", "NFS (Tier 1)", "NFS (Tier 2)", "Local - SAS", "Local - SATA", "Local - SSD", "Cloud (local)", "Cloud Block (SATA)", "Cloud Block (SSD)", "Block (dSAN)" ],
+    "vHostCluster": [ "Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4" ],
+    "Datacentre": [ "Primary", "Secondary" ],
+    "Database": [ "", "SQL Web 2012", "SQL Standard 2014", "SQL Enterprise2014", "SQL Standard 2012", "SQL Enterprise2012", "SQL Web 2008", "SQL Workgroup 2008", "SQL Standard 2008", "SQL Enterprise 2008", "SQL Standard 2014 (Passive Node)", "SQL Enterprise2014 (Passive Node)", "SQL Standard 2012 (Passive Node)", "SQL Enterprise2012 (Passive Node)", "SQL Standard 2008 (Passive Node)", "SQL Enterprise 2008 (Passive Node)", "MySQL", "MySQL (Passive Node)", "Oracle Standard One", "Oracle Standard", "Oracle Standard RAC", "Oracle Enterprise", "Oracle Enterprise RAC" ]
+  },
+
+  "TestKey": [ "Value 1", "Value 2", "Value 3" ]
+ }
