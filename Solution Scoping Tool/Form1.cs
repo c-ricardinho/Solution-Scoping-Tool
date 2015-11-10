@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Xml;
-using System.Xml.Serialization;
 using System.IO;
 using Newtonsoft.Json;
 using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices;
 using System.Security.Principal;
+using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Solution_Scoping_Tool
 {
@@ -43,9 +43,9 @@ namespace Solution_Scoping_Tool
             try
             {
                 //Get default ConfigSettings.json filepath and name
-                string oldString = "\\bin\\debug";
+                string oldString = "\\bin\\x86\\debug";
                 string newString = "";
-                string strFilename = Application.StartupPath.ToString().ToLower().Replace(oldString, newString) + "\\Settings\\ConfigSettings.json";
+                string strFilename = System.Windows.Forms.Application.StartupPath.ToString().ToLower().Replace(oldString, newString) + "\\Settings\\ConfigSettings.json";
 
                 backgroundWorkerLoadConfigSettings.RunWorkerAsync(strFilename);
             }
@@ -315,12 +315,12 @@ namespace Solution_Scoping_Tool
 
         private void buttonLoadConfig_Click(object sender, EventArgs e)
         {
-            string strFileName = "";
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "JSON (*.json)|*.json";
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //string strFileName = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON (*.json)|*.json";
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                strFileName = openFileDialog1.FileName.ToString();
+                string strFileName = openFileDialog.FileName.ToString();
 
                 string inputJSON = File.ReadAllText(strFileName);
                 CustomerSettings JSONData = JsonConvert.DeserializeObject<CustomerSettings>(inputJSON);
@@ -722,13 +722,13 @@ namespace Solution_Scoping_Tool
                 {
                     dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Empty;
                     dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Empty;
-                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(dataGridViewServers.Font, FontStyle.Regular);
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font(dataGridViewServers.Font, FontStyle.Regular);
                 }
                 else if (Convert.ToBoolean(dataGridViewServers.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue) == false)
                 {
                     dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DimGray;
                     dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
-                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(dataGridViewServers.Font, FontStyle.Italic);
+                    dataGridViewServers.Rows[e.RowIndex].DefaultCellStyle.Font = new System.Drawing.Font(dataGridViewServers.Font, FontStyle.Italic);
                 }
             }
         }
@@ -744,6 +744,37 @@ namespace Solution_Scoping_Tool
         private void dataGridViewServers_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             dataGridViewServers.EndEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void buttonImportXLSX_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string strFileName = openFileDialog.FileName.ToString();
+
+                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook currentWorkbook = new Workbook();
+                Microsoft.Office.Interop.Excel.Worksheet  currentWorksheet = new Worksheet();
+                currentWorkbook = excelApp.Workbooks.Open(strFileName);
+                currentWorksheet = (Microsoft.Office.Interop.Excel.Worksheet)currentWorkbook.Worksheets.get_Item(1);
+
+                MessageBox.Show(currentWorksheet.Name.ToString());
+
+                int intStartRow = 4;
+                int intServerCount = 0;
+
+                do
+                {
+                    intServerCount++;
+                } while (currentWorksheet.Cells[4, 0] != null);
+
+                MessageBox.Show(intServerCount.ToString());
+
+                currentWorkbook.Close();
+            }
         }
     }
 }

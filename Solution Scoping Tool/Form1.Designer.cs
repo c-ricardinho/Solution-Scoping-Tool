@@ -132,6 +132,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorkerLoadConfigSettings = new System.ComponentModel.BackgroundWorker();
+            this.buttonImportXLSX = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             this.groupBoxSolutionScopingToolDetails.SuspendLayout();
@@ -711,6 +712,7 @@
             // 
             // tabPageServers
             // 
+            this.tabPageServers.Controls.Add(this.buttonImportXLSX);
             this.tabPageServers.Controls.Add(this.buttonShowHideDatabases);
             this.tabPageServers.Controls.Add(this.buttonShowHideHDDs);
             this.tabPageServers.Controls.Add(this.dataGridViewServers);
@@ -1177,6 +1179,16 @@
             this.backgroundWorkerLoadConfigSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadConfigSettings_DoWork);
             this.backgroundWorkerLoadConfigSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadConfigSettings_RunWorkerCompleted);
             // 
+            // buttonImportXLSX
+            // 
+            this.buttonImportXLSX.Location = new System.Drawing.Point(165, 653);
+            this.buttonImportXLSX.Name = "buttonImportXLSX";
+            this.buttonImportXLSX.Size = new System.Drawing.Size(75, 23);
+            this.buttonImportXLSX.TabIndex = 3;
+            this.buttonImportXLSX.Text = "Import";
+            this.buttonImportXLSX.UseVisualStyleBackColor = true;
+            this.buttonImportXLSX.Click += new System.EventHandler(this.buttonImportXLSX_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1313,6 +1325,7 @@
         private System.Windows.Forms.Button buttonShowHideDatabases;
         private System.Windows.Forms.Button buttonShowHideHDDs;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button buttonImportXLSX;
     }
 }
 
