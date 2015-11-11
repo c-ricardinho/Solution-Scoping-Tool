@@ -83,6 +83,7 @@
             this.comboBoxPrimarySupportSegment = new System.Windows.Forms.ComboBox();
             this.labelPrimarySupportSegment = new System.Windows.Forms.Label();
             this.tabPageServers = new System.Windows.Forms.TabPage();
+            this.buttonImportXLSX = new System.Windows.Forms.Button();
             this.buttonShowHideDatabases = new System.Windows.Forms.Button();
             this.buttonShowHideHDDs = new System.Windows.Forms.Button();
             this.dataGridViewServers = new System.Windows.Forms.DataGridView();
@@ -132,7 +133,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorkerLoadConfigSettings = new System.ComponentModel.BackgroundWorker();
-            this.buttonImportXLSX = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControlMain.SuspendLayout();
             this.tabPageDetails.SuspendLayout();
             this.groupBoxSolutionScopingToolDetails.SuspendLayout();
@@ -144,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServers)).BeginInit();
             this.tabPageConfig.SuspendLayout();
             this.groupBoxConfiguration.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -159,7 +163,7 @@
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(984, 705);
+            this.tabControlMain.Size = new System.Drawing.Size(984, 695);
             this.tabControlMain.TabIndex = 0;
             // 
             // tabPageDetails
@@ -168,7 +172,7 @@
             this.tabPageDetails.Location = new System.Drawing.Point(4, 22);
             this.tabPageDetails.Name = "tabPageDetails";
             this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDetails.Size = new System.Drawing.Size(976, 679);
+            this.tabPageDetails.Size = new System.Drawing.Size(976, 669);
             this.tabPageDetails.TabIndex = 0;
             this.tabPageDetails.Text = "Details";
             this.tabPageDetails.UseVisualStyleBackColor = true;
@@ -194,7 +198,7 @@
             this.groupBoxSolutionScopingToolDetails.Controls.Add(this.textBoxScopingToolVersion);
             this.groupBoxSolutionScopingToolDetails.Location = new System.Drawing.Point(6, 6);
             this.groupBoxSolutionScopingToolDetails.Name = "groupBoxSolutionScopingToolDetails";
-            this.groupBoxSolutionScopingToolDetails.Size = new System.Drawing.Size(964, 667);
+            this.groupBoxSolutionScopingToolDetails.Size = new System.Drawing.Size(964, 657);
             this.groupBoxSolutionScopingToolDetails.TabIndex = 2;
             this.groupBoxSolutionScopingToolDetails.TabStop = false;
             this.groupBoxSolutionScopingToolDetails.Text = "Solution Scoping Tool Details";
@@ -723,6 +727,16 @@
             this.tabPageServers.Text = "Servers";
             this.tabPageServers.UseVisualStyleBackColor = true;
             // 
+            // buttonImportXLSX
+            // 
+            this.buttonImportXLSX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonImportXLSX.Location = new System.Drawing.Point(165, 653);
+            this.buttonImportXLSX.Name = "buttonImportXLSX";
+            this.buttonImportXLSX.Size = new System.Drawing.Size(75, 23);
+            this.buttonImportXLSX.TabIndex = 3;
+            this.buttonImportXLSX.Text = "Import";
+            this.buttonImportXLSX.UseVisualStyleBackColor = true;
+            // 
             // buttonShowHideDatabases
             // 
             this.buttonShowHideDatabases.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1179,21 +1193,34 @@
             this.backgroundWorkerLoadConfigSettings.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadConfigSettings_DoWork);
             this.backgroundWorkerLoadConfigSettings.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadConfigSettings_RunWorkerCompleted);
             // 
-            // buttonImportXLSX
+            // statusStrip1
             // 
-            this.buttonImportXLSX.Location = new System.Drawing.Point(165, 653);
-            this.buttonImportXLSX.Name = "buttonImportXLSX";
-            this.buttonImportXLSX.Size = new System.Drawing.Size(75, 23);
-            this.buttonImportXLSX.TabIndex = 3;
-            this.buttonImportXLSX.Text = "Import";
-            this.buttonImportXLSX.UseVisualStyleBackColor = true;
-            this.buttonImportXLSX.Click += new System.EventHandler(this.buttonImportXLSX_Click);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 710);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 732);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControlMain);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "FormMain";
@@ -1215,7 +1242,10 @@
             this.tabPageConfig.ResumeLayout(false);
             this.groupBoxConfiguration.ResumeLayout(false);
             this.groupBoxConfiguration.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1326,6 +1356,9 @@
         private System.Windows.Forms.Button buttonShowHideHDDs;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button buttonImportXLSX;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

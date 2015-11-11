@@ -712,6 +712,28 @@ namespace Solution_Scoping_Tool
             {
 
             }
+
+            //if (e.ColumnIndex == HDD1.Index && dataGridViewServers[e.RowIndex, HDD1Type.Index].Value == null &&  e.RowIndex != -1)
+            //{
+            //    //dataGridViewServers[e.RowIndex, HDD1Type.Index].Style.BackColor = Color.Red;
+            //    MessageBox.Show("Drive type empty");
+            //}
+            //else if (e.ColumnIndex == HDD2.Index)
+            //{
+
+            //}
+            //else if (e.ColumnIndex == HDD3.Index)
+            //{
+
+            //}
+            //else if (e.ColumnIndex == HDD4.Index)
+            //{
+
+            //}
+            //else if (e.ColumnIndex == HDD5.Index)
+            //{
+
+            //}
         }
 
         private void dataGridViewServers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -743,38 +765,12 @@ namespace Solution_Scoping_Tool
 
         private void dataGridViewServers_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            dataGridViewServers.EndEdit(DataGridViewDataErrorContexts.Commit);
+            //dataGridViewServers.EndEdit(DataGridViewDataErrorContexts.Commit);
         }
 
         private void buttonImportXLSX_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = @"C:\";
-            openFileDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string strFileName = openFileDialog.FileName.ToString();
 
-                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook currentWorkbook = new Workbook();
-                Microsoft.Office.Interop.Excel.Worksheet  currentWorksheet = new Worksheet();
-                currentWorkbook = excelApp.Workbooks.Open(strFileName);
-                currentWorksheet = (Microsoft.Office.Interop.Excel.Worksheet)currentWorkbook.Worksheets.get_Item(1);
-
-                MessageBox.Show(currentWorksheet.Name.ToString());
-
-                int intStartRow = 4;
-                int intServerCount = 0;
-
-                do
-                {
-                    intServerCount++;
-                } while (currentWorksheet.Cells[4, 0] != null);
-
-                MessageBox.Show(intServerCount.ToString());
-
-                currentWorkbook.Close();
-            }
         }
     }
 }
